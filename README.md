@@ -46,9 +46,8 @@ In this task, the robot rotates in place to detect and align with markers placed
 
 ```bash
 roslaunch robot_urdf sim_aruco.launch
-
-### Task 1: Rotate the camera and Find Markers
-In this task, the robot rotates in place to detect and align with markers placed in a circular arrangement in the environment. To launch this task, execute the following command:
-
+```
+###  Rotate the Camera and Find Markers
+In this task, only the robot's camera rotates to detect markers. Unlike the first task, the camera may not be able to detect markers positioned behind the robot's wheels due to limited visibility, for that I tried to change the world to make the camera able to capture all the markers . To launch this task, execute the following command:
 ```bash
-roslaunch robot_urdf sim_aruco.launch
+roslaunch robot_urdf sim_aruco2.launch
