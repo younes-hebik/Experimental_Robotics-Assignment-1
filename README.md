@@ -30,13 +30,19 @@ This program detects Aruco markers in the environment using a camera, processes 
 ## Topics Used
 
 ### Subscribed Topics
-- `/robot/camera1/image_raw`:
-  - Input image stream from the robot's camera.
+- `/robot/camera1/image_raw`: Input image stream from the robot's camera.
 
 ### Published Topics
-- `result`:
-  - Image stream with detected markers annotated.
-- `/cmd_vel`:
-  - Velocity commands to control robot movement.
-- `/robot/camera_joint_velocity_controller/command`:
-  - Velocity commands to control the camera's movement.
+- `result`: Image stream with detected markers annotated.
+- `/cmd_vel`: Velocity commands to control robot movement.
+- `/robot/camera_joint_velocity_controller/command`: Velocity commands to control the camera's movement.
+
+## How to Launch the File
+
+This program supports two tasks, each with its own launch file for specific functionality:
+
+### Task 1: Rotate the Robot and Find Markers
+In this task, the robot rotates in place to detect and align with markers placed in a circular arrangement in the environment. To launch this task, execute the following command:
+
+```bash
+roslaunch robot_urdf sim_aruco.launch
