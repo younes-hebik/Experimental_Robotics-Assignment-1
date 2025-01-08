@@ -56,7 +56,6 @@ public:
     debug_pub_ = it_.advertise("debug", 1);
     vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
     
-  // camera_vel_pub_ = rospy.Publisher("/robot/camera_joint_velocity_controller/command", Float64, queue_size=10)
    camera_vel_pub_ = nh_.advertise<std_msgs::Float64>("/robot/camera_joint_velocity_controller/command", 10);
 
 
@@ -104,11 +103,7 @@ public:
         vel.angular.z = 1.0;
         vel_pub_.publish(vel);
 
-/*
-	std_msgs::Float64 velocity_msg;
-        velocity_msg.data = 1.0; // Set desired velocity here
-        camera_vel_pub_.publish(velocity_msg);
-        */
+
         if (markers_.size() >= 5)  // Assume we expect 4 markers
         {
           all_markers_detected_ = true;
@@ -181,11 +176,7 @@ public:
           vel_pub_.publish(vel);
           
           
-          /*
-        std_msgs::Float64 velocity_msg;
-        velocity_msg.data = 1.0; // Set desired velocity here
-        camera_vel_pub_.publish(velocity_msg);
-          */
+        
           
           }
           else{
@@ -204,11 +195,7 @@ public:
 	vel.angular.z = (rot_L < rot_R) ? 1.0 : -1.0;
 	vel_pub_.publish(vel);
 	
-	/*
-	std_msgs::Float64 velocity_msg;
-        velocity_msg.data = (rot_L < rot_R) ? 1.0 : -1.0;
-        camera_vel_pub_.publish(velocity_msg);
-*/
+
           }
           
         }
@@ -220,11 +207,7 @@ public:
           vel_pub_.publish(vel);
           
           
-          /*
-          std_msgs::Float64 velocity_msg;
-        velocity_msg.data = 0; // Set desired velocity here
-        camera_vel_pub_.publish(velocity_msg);
-          */
+       
           std::cout << "Finished publishing all markers in sorted order." << std::endl;
         }
       }
