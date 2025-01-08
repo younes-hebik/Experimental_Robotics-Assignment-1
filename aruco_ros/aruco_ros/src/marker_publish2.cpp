@@ -56,7 +56,6 @@ public:
     debug_pub_ = it_.advertise("debug", 1);
     vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 1);
     
-  // camera_vel_pub_ = rospy.Publisher("/robot/camera_joint_velocity_controller/command", Float64, queue_size=10)
    camera_vel_pub_ = nh_.advertise<std_msgs::Float64>("/robot/camera_joint_velocity_controller/command", 10);
 
 
@@ -99,11 +98,7 @@ public:
           marker.draw(inImage_, cv::Scalar(0, 0, 255), 2);
         }
 
-      /*
-        geometry_msgs::Twist vel;
-        vel.angular.z = 1.0;
-        vel_pub_.publish(vel);
-        */
+    
 
 
 	std_msgs::Float64 velocity_msg;
@@ -174,11 +169,7 @@ public:
 
          if(c1==0){
          
-         /*
-          geometry_msgs::Twist vel;
-          vel.angular.z = 1.0;
-          vel_pub_.publish(vel);
-          */
+       
           
           
         std_msgs::Float64 velocity_msg;
@@ -198,11 +189,7 @@ public:
 		: (sorted_iden_[k].pos - temp_pos);
 
 	// Decide rotation direction based on distances using a ternary operator
-	/*
-	geometry_msgs::Twist vel;
-	vel.angular.z = (rot_L < rot_R) ? 1.0 : -1.0;
-	vel_pub_.publish(vel);
-	*/
+	
 	
 	std_msgs::Float64 velocity_msg;
         velocity_msg.data = (rot_L < rot_R) ? 1.0 : -1.0;
@@ -213,11 +200,7 @@ public:
         }
         else
         {
-/*
-          geometry_msgs::Twist vel;
-          vel.angular.z = 0.0;
-          vel_pub_.publish(vel);
- */         
+       
           
           
           std_msgs::Float64 velocity_msg;
