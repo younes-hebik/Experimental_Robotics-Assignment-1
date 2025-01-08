@@ -37,6 +37,17 @@ This program detects Aruco markers in the environment using a camera, processes 
 - `/cmd_vel`: Velocity commands to control robot movement.
 - `/robot/camera_joint_velocity_controller/command`: Velocity commands to control the camera's movement.
 
+## Nodes Overview
+
+### 1. `marker_publish.cpp`
+- **Path**: `aruco_ros/aruco_ros/src/marker_publish.cpp`
+- **Description**: This node handles the functionality for the first task, where the entire robot rotates to scan and detect ArUco markers in the environment. The rotation allows the robot to cover its surroundings and identify markers effectively.
+
+### 2. `marker_publish2.cpp`
+- **Path**: `aruco_ros/aruco_ros/src/marker_publish2.cpp`
+- **Description**: This node is designed for the second task, where only the robot's camera rotates to scan and detect ArUco markers. This approach enables marker detection while keeping the robot stationary.
+
+
 ## How to Launch the File
 
 This program supports two tasks, each with its own launch file for specific functionality:
